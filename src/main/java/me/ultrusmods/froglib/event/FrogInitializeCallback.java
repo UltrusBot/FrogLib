@@ -9,6 +9,7 @@ import net.minecraft.nbt.NbtCompound;
 import net.minecraft.world.LocalDifficulty;
 import net.minecraft.world.ServerWorldAccess;
 
+@FunctionalInterface
 public interface FrogInitializeCallback {
     Event<FrogInitializeCallback> EVENT = EventFactory.createArrayBacked(FrogInitializeCallback.class,
             (listeners) -> (world, difficulty, spawnReason, entityData, entityNbt, frog) -> {
