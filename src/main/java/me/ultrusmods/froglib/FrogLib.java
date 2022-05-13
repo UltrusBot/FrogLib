@@ -42,7 +42,7 @@ public class FrogLib implements ModInitializer {
                 FabricLootPoolBuilder poolBuilder = FabricLootPoolBuilder.builder()
                         .rolls(ConstantLootNumberProvider.create(1));
                 CUSTOM_FROGLIGHT_ITEMS.forEach((frogVariant, itemConvertible) -> {
-                    poolBuilder.with((LootPoolEntry.Builder<?>) ((LootPoolEntry.Builder) ItemEntry.builder(itemConvertible).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f)))).conditionally(this.killedByFrog(frogVariant)));
+                    poolBuilder.with(ItemEntry.builder(itemConvertible).apply(SetCountLootFunction.builder(ConstantLootNumberProvider.create(1.0f))).conditionally(this.killedByFrog(frogVariant)));
                 });
 				table.pool(poolBuilder);
 			}
@@ -56,7 +56,7 @@ public class FrogLib implements ModInitializer {
      * @param texture The texture location of the frog
      * @return Returns the new FrogVariant
      */
-    public static FrogVariant registerFrog(String id, Identifier texture) {
+    public static FrogVariant registerFrog(Identifier id, Identifier texture) {
         return register(id, texture);
     }
 
@@ -85,7 +85,7 @@ public class FrogLib implements ModInitializer {
         return DamageSourcePropertiesLootCondition.builder(DamageSourcePredicate.Builder.create().sourceEntity(EntityPredicate.Builder.create().type(EntityType.FROG).typeSpecific(TypeSpecificPredicate.frog(variant))));
     }
 
-    private static FrogVariant register(String id, Identifier texture) {
+    private static FrogVariant register(Identifier id, Identifier texture) {
         return Registry.register(Registry.FROG_VARIANT, id, new FrogVariant(texture));
     }
 }
