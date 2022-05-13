@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "id": "froglib",
+  "version": "${version}",
+
+  "name": "FrogLib",
+  "description": "Lets mod developers easily add new frog variants.",
+  "authors": [
+    "UltrusMods"
+  ],
+  "contact": {
+    "homepage": "https://www.ultrusmods.me/",
+    "sources": "https://github.com/UltrusBot/MobOrigins/FrogLib",
+    "issues": "https://github.com/UltrusBot/MobOrigins/FrogLib/issues"
+
+  },
+
+  "license": "MIT",
+  "icon": "assets/froglib/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "me.ultrusmods.froglib.FrogLib"
+    ]
+  },
+  "mixins": [
+    "froglib.mixins.json"
+  ],
+
+  "depends": {
+    "fabricloader": ">=0.14.5",
+    "fabric": "*",
+    "minecraft": "*",
+    "java": ">=17"
+  },
+  "custom": {
+    "modmenu": {
+      "links": {
+        "modmenu.discord": "https://discord.gg/GJSGb335v4"
+      },
+      "badges": ["library"]
+    }
+  }
+}
