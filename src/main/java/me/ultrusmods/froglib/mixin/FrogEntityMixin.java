@@ -1,6 +1,7 @@
 package me.ultrusmods.froglib.mixin;
 
 import me.ultrusmods.froglib.FrogLib;
+import me.ultrusmods.froglib.event.FrogInitializeCallback;
 import net.minecraft.entity.EntityData;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.SpawnReason;
@@ -40,6 +41,6 @@ public abstract class FrogEntityMixin extends AnimalEntity {
                 this.setVariant(frogVariant);
             }
         });
-
+        FrogInitializeCallback.EVENT.invoker().onFrogInit(world, difficulty, spawnReason, entityData, entityNbt, (FrogEntity)(Object)this);
     }
 }
