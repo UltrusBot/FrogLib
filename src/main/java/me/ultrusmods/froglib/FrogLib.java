@@ -6,7 +6,6 @@ import net.fabricmc.fabric.api.loot.v1.event.LootTableLoadingCallback;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.passive.FrogVariant;
 import net.minecraft.item.ItemConvertible;
-import net.minecraft.item.Items;
 import net.minecraft.loot.condition.DamageSourcePropertiesLootCondition;
 import net.minecraft.loot.condition.LootCondition;
 import net.minecraft.loot.entry.ItemEntry;
@@ -57,7 +56,7 @@ public class FrogLib implements ModInitializer {
      * @param texture The texture location of the frog
      * @return Returns the new FrogVariant
      */
-    public FrogVariant registerFrog(String id, Identifier texture) {
+    public static FrogVariant registerFrog(String id, Identifier texture) {
         return register(id, texture);
     }
 
@@ -67,7 +66,7 @@ public class FrogLib implements ModInitializer {
      * @param frogVariant The Frog Variant you wish to give a custom spawn tag.
      * @param spawnTag The tag that dictates where the frog will spawn.
      */
-    public void registerVariantSpawnLocation(FrogVariant frogVariant, TagKey<Biome> spawnTag) {
+    public static void registerVariantSpawnLocation(FrogVariant frogVariant, TagKey<Biome> spawnTag) {
         CUSTOM_FROG_SPAWN_TAGS.put(frogVariant, spawnTag);
     }
 
@@ -77,7 +76,7 @@ public class FrogLib implements ModInitializer {
      * @param frogVariant The Frog Variant you wish to give a custom spawn tag.
      * @param itemConvertible Item Convertible of item you wish magma cubes to drop when eaten by frog.
      */
-    public void registerFroglightLikeItem(FrogVariant frogVariant, ItemConvertible itemConvertible) {
+    public static void registerFroglightLikeItem(FrogVariant frogVariant, ItemConvertible itemConvertible) {
         CUSTOM_FROGLIGHT_ITEMS.put(frogVariant, itemConvertible);
     }
 
